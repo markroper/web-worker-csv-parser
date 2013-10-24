@@ -1,0 +1,1 @@
+This project enables a user to load a .csv, and uses a webworker thread to parse and aggregate data in a .csv to create visualizations using d3!

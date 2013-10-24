@@ -1,0 +1,121 @@
+<html>
+	<head>
+		<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
+		<link href="./css/ChartBuilder.css" rel="stylesheet" type="text/css"/>
+		<script>
+			var require = {
+					baseURL: "/js/",
+					paths:	{
+						d3: "http://cdnjs.cloudflare.com/ajax/libs/d3/3.1.6/d3.min",
+						highcharts: "http://code.highcharts.com/highcharts",
+						jquery:"http://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min",
+						jqueryui:"http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min",
+						underscore:	"http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min",
+						backbone: "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min",
+						marionette: "//cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.0.1-bundled/backbone.marionette.min"
+					},
+					shim: {
+						highcharts:{
+							exports:"Highcharts"
+						},
+						d3:{
+							exports:"d3"
+						},
+						marionette:{
+							deps: ["backbone"],
+							exports:"Backbone.Marionette"
+						},
+						backbone: {
+							deps:["underscore", "jquery"],
+							exports: "Backbone"
+						},
+						underscore:{
+							exports:"_"
+						},
+						jqueryui:{
+							deps:["jquery"]
+						}
+					}
+				};
+		</script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>
+		<script src="./js/date.js"></script>
+		<script>
+			MAXFILESIZE = 500000;
+			require(["ChartBuilder"], function(chartApp)	
+			{
+				if (window.File && window.FileReader && window.FileList && window.Blob)
+					chartApp.App.start({});
+			});
+		</script>
+	</head>
+	<body>
+		<!-- MARKUP -->
+		<div class="NavRegion" id="navRegion"></div>
+		<div class="PaletteContainer">
+			<div class="SidebarRegion" id="sidebarRegion"></div>
+			<div class="PaletteRegion" id="paletteRegion"></div>
+		</div>
+		
+		<!-- TEMPLATES -->
+		<!-- sidebar templates -->
+		<script type="text/template" id="sidebarContainer">
+			<h2>Columns</h2>
+			<ul class="ColumnList"></ul>
+		</script>
+		<script type="text/template" id="sidebarColumn">
+			<div data-type='<%= type %>' data-id='<%= index %>'><%= name %></div>
+		</script>
+		<!-- Builder palette tempaltes-->
+		<script type="text/template" id="paletteContents">
+			<div class="ChartContainer">
+				<div class="YAxis DashedBorder DropZone">
+					<div class="SettingsTooltip"></div>
+					<section class="VertTextWrapper"><h1>YAxis</h1></section>
+				</div>
+				<div class="ChartBody SolidBorder"></div>
+			</div>
+			<div class="XAxisContainer">
+				<div class="XAxis DashedBorder DropZone">
+					<div class="SettingsTooltip"></div>
+					<h1>XAxis</h1>
+				</div>
+			</div>
+		</script>
+		<script type="text/template" id="barPaletteContents">
+			<div class="ChartContainer">
+				<div class="YAxis DashedBorder DropZone">
+					<section class="VertTextWrapper"><h1>YAxis</h1></section>
+				</div>
+				<div class="ChartBody SolidBorder"></div>
+				<div class="Series DashedBorder DropZone">
+					<div class="SettingsTooltip"></div>
+					<section><h1>Series</h1></section>
+				</div>
+			</div>
+			<div class="XAxisContainer">
+				<div class="XAxis DashedBorder DropZone">
+					<div class="SettingsTooltip"></div>
+					<h1>XAxis</h1>
+				</div>
+			</div>
+		</script>
+
+		<!-- Nav Templates-->
+		<script type="text/template" id="navContents">
+			<h1 id="instructions">Choose a CSV file.</h1>
+			<div class="FileInputContainer">
+				<input type="file" id="files" class="SolidBorder" name="files[]" />
+				<output id="list"></output>
+			</div>
+		</script>
+		<!-- Chart gallery templates -->
+		<script type="text/template" id="chartGalleryContainer">
+			<div class="ChartContainer"></div>
+		</script>
+		<script type="text/template" id="chartGalleryItem">
+			<div class="ThumbnailTitle"><%= title %></div>
+			<div class="Thumbnail <%= type %>" data-type="<%= type %>"></div>
+		</script>
+	</body>
+</html>

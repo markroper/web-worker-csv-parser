@@ -1,0 +1,226 @@
+/* SVG STYLES*/
+svg {
+  font: 10px sans-serif;
+}
+path {
+  fill: steelblue;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+/* MARKUP STYLES */
+body{
+	font-family:'OpenSans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+div{
+	vertical-align:top;
+}
+h2, h1{
+	text-align:center;
+	margin: .5em 0em;
+}
+li.ColumnValue{
+	list-style-type: none;
+	cursor:pointer;
+	padding:4px 10px 4px 10px;
+	margin:5px 10px;
+	background-color:#EDEDED;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	white-space: nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	text-align:center;
+	transition: background-color 250;
+}
+li.ColumnValue:hover{
+	background-color: #CFCCCC;
+}
+.ColumnValue{
+	min-width:6em;
+}
+.NavRegion{
+	margin:15px;
+}
+.FileInputContainer{
+	display:block;
+	text-align:center;
+}
+#files{
+	background-color:#f7f7f7;
+	padding:10px;
+}
+.PaletteContainer{
+	display:table;
+	table-layout:fixed;
+	width:100%;
+	min-height:500px;
+	box-sizing:border-box;
+	padding:10px;
+	border-spacing: 20px 5px;	
+}
+
+.SidebarRegion{
+	display:table-cell;
+	width:11em;
+}
+#columnsView{
+	margin-top:5px;
+	background-color: #F7F7F7;
+}
+
+.PaletteRegion{
+	display:table-cell;
+	width:auto;	
+}
+
+.DropZone h1{
+	color: #d0d0d0;
+	font-size: 40pt;
+	margin:0;
+}
+.ChartContainer{
+	display:table;
+	table-layout:fixed;
+	width:100%;
+	height: 25em;
+	box-sizing:border-box;
+	border-spacing: 10px 5px;
+}
+
+.YAxis, .Series{
+	position:relative;
+	vertical-align:middle;
+	display:table-cell;
+	width:5em;
+}
+.VertTextWrapper{
+	display:block;
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	width:5em;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+}
+.YAxis h1, .Series h1{
+	position:absolute;
+	transform: rotate(-90deg) translate(-50%, 50%);	
+	transform-origin: 0% 50%;
+	-ms-transform: rotate(-90deg) translate(-50%, 50%);
+	-ms-transform-origin:0% 50%; 
+	-webkit-transform: rotate(-90deg) translate(-50%, 50%); 
+	-webkit-transform-origin:0% 50%;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	white-space: nowrap;
+}
+
+.ChartBody{
+	display:table-cell;
+	width:auto;
+}
+
+.SettingsTooltip{
+	width:24px;
+	height:24px;
+	color:red;
+	position:absolute;
+	left:20px;
+	top:20px;
+	background-image:url("../res/configuration.png");
+	background-size:100% 100%;
+	cursor:pointer;
+}
+.XAxis > .SettingsTooltip{
+	left:25px;
+	top:50%;
+	margin-top:-12px;
+}
+.YAxis > .SettingsTooltip, .Series > .SettingsTooltip{
+	left:50%;
+	margin-left:-12px;
+	top:25px;
+}
+.XAxisContainer{
+	display:table;
+	table-layout:fixed;
+	width:100%;
+	border-spacing:10px 5px;
+	width:100%;
+	box-sizing: border-box;
+	height:5em;
+}
+.XAxis{
+	width:100%;
+	position:relative;
+}
+
+.DashedBorder
+{
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: dashed 3px #d0d0d0;
+}
+.SolidBorder
+{
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: solid 2px #d0d0d0;
+}
+
+.HighlightDroppable{
+	border-color: #FCE700;
+}
+.HoverDroppable{
+	border-color: #70CC0E;
+}
+
+.ColumnList{
+	padding-left:0;
+	margin-bottom:2em;
+}
+
+/* Thumbnail Gallery Styles */
+.ThumbnailContainer{
+	display:inline-block;
+	transition: background-color 250;
+	margin:0px 5px 10px 5px;
+	padding:10px;
+	border-radius: 8px;
+}
+.ThumbnailContainer:hover{
+	background-color:#FFF694;
+	cursor:pointer;
+}
+.ThumbnailTitle{
+	width:100%;
+	overflow:hidden;
+	white-space: no-wrap;
+	text-overflow:ellipsis;
+	text-align:center;
+	margin-bottom:10px;
+}
+.Thumbnail{
+	width: 230px;
+	height: 120px;
+}
+.Thumbnail.Stock{ background-image:url("../res/StockThumbnail.png"); }
+.Thumbnail.Bar{ background-image:url("../res/BarThumbnail.png"); }
+.Thumbnail.Pie{ background-image:url("../res/PieThumbnail.png"); }
+.Thumbnail.HexBin{ background-image:url("../res/HexBinningThumbnail.png"); }
